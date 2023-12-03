@@ -31,7 +31,31 @@ Loi: khong tim thay tessecract
 cai ngon ngu
 o day toi cau hinh la: /path/to/tessdata = language
 wget https://github.com/tesseract-ocr/tessdata/raw/main/vie.traineddata -P /path/to/tessdata
-![Alt text](image-1.png)
 
 
+#### Server
+pip install fastapi uvicorn
 
+run file
+uvicorn main:app --reload
+
+khi run se gap loi 
+Error: loading ASGI app. Could not import module "main".
+
+Nghĩa là không đúng cấu trúc thư mục.
+[Tham khảo](https://stackoverflow.com/a/62934660)
+
+sau khi run lại, cũng gặp lỗi.
+
+chạy lệnh:
+pip install python-multipart
+
+ok chạy được rồi
+```python
+INFO:     Will watch for changes in these directories: ['/workspaces/my_python/src']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [3656] using StatReload
+INFO:     Started server process [3662]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+```
