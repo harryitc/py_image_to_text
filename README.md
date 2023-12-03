@@ -59,3 +59,5 @@ INFO:     Started server process [3662]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 ```
+
+Khi gọi api từ angular. Chúng ta sẽ gặp lỗi CQRS. Do đó, dùng middleware.
