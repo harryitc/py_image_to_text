@@ -11,7 +11,7 @@ batch_size = 10
 
 
 # Tạo thư mục đầu ra nếu chưa tồn tại
-output_folder = "truyen_output"
+output_folder = "gen_output"
 os.makedirs(output_folder, exist_ok=True)
 
 def read_html_content(file_path):
