@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <base target="_blank">
+  <style>
+:root {
+  --fg: #000; /* foreground  */
+  --bg: #fff; /* background  */
+  --bd: #000; /* border  */
+  --lk: #0095dd; /* link */
+  --hg: #ffff81; /* highlight  */
+}
+html {
+  overflow: overlay;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 30px auto 0 auto;
+  padding: 10px;
+  position: relative;
+
+  color: var(--fg);
+  border-color: var(--bd);
+  background-color: var(--bg);
+}
+body[data-mode="light"] {
+  color-scheme: light;
+  --fg: #222;
+  --bd: #222;
+  --bg: whitesmoke;
+}
+body[data-mode="dark"] {
+  color-scheme: dark;
+  --fg: #eee;
+  --bd: #eee;
+  --bg: #333;
+}
+body[data-mode="sepia"] {
+  color-scheme: light;
+  --fg: #5b4636;
+  --bd: #5b4636;
+  --bg: #f4ecd8;
+}
+body[data-mode="solarized-light"] {
+  color-scheme: light;
+  --fg: #586e75;
+  --bd: #586e75;
+  --bg: #fdf6e3;
+}
+body[data-mode="nord-light"] {
+  color-scheme: light;
+  --fg: #2e3440;
+  --bd: #2e3440;
+  --bg: #e5e9f0;
+}
+body[data-mode="groove-dark"] {
+  color-scheme: dark;
+  --fg: #cec4ac;
+  --bd: #cec4ac;
+  --bg: #282828;
+}
+body[data-mode="solarized-dark"] {
+  color-scheme: dark;
+  --fg: #839496;
+  --bd: #839496;
+  --bg: #002b36;
+}
+body[data-mode="nord-dark"] {
+  color-scheme: dark;
+  --fg: #e5e9f0;
+  --bd: #e5e9f0;
+  --bg: #2e3440;
+}
+
+@media print {
+  body[data-mode] {
+    --fg: #000;
+    --bd: #000;
+    --bg: #fff;
+
+    width: unset;
+    padding: 0;
+    margin: 0;
+  }
+}
+body[data-loaded=true] {
+  
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+img:not([width])[src$=".svg"] {
+  max-width: 100px;
+}
+body[data-images=false] canvas,
+body[data-images=false] svg,
+body[data-images=false] img {
+  display: none;
+}
+svg:not([width]):not([height]) {
+  max-width: 25vmin;
+}
+a {
+  color: var(--lk);
+  text-decoration: none;
+}
+hr {
+  background-color: var(--bd);
+  height: 1px;
+  border: 0;
+}
+#reader-domain {
+  font-family: Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  border-bottom-color: currentcolor;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  display: inline-block;
+  direction: ltr;
+}
+#reader-domain > span:first-child {
+  font-size: 1.1em;
+}
+#reader-domain > span:last-child {
+  font-size: 0.8em;
+}
+#reader-title {
+  font-size: 1.6em;
+  line-height: 1.25em;
+  width: 100%;
+  margin: 20px 0;
+  padding: 0;
+}
+#reader-credits,
+#doi,
+#published-time,
+#reader-estimated-time {
+  font-size: 0.85em;
+  line-height: 1.48em;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+#reader-credits:not(:empty)::after {
+  content: ' ⋮ ';
+}
+#published-time:not(:empty)::before {
+  content: ' ⋮ ';
+}
+#doi-json {
+  overflow: hidden;
+}
+#doi-json code {
+  overflow: auto;
+  max-height: 400px;
+}
+#published-time:empty,
+#reader-credits:empty {
+  display: none;
+}
+mark.hghlght {
+  background-color: var(--hg);
+}
+body:not([data-columns="1"]) .page :is(h1, h2) {
+  column-span: all;
+  background-color: rgba(125, 125, 125, 0.1);
+  padding: 10px;
+}
+.hidden {
+  display: none;
+}
+
+</style>
+  <style id="user-css">body {
+  padding-bottom: 64px;
+}
+a:visited {
+  color: #d33bf0;
+}
+a:link, a:link:hover, a:link:active, a:link * {
+  color: #0095dd;
+}
+a:link {
+  text-decoration: none;
+  font-weight: normal;
+}
+pre {
+  white-space: pre-wrap;
+}
+pre code {
+  background-color: #eff0f1;
+  color: #393318;
+  font-family: monospace;
+  display: block;
+  padding: 5px 10px;
+}
+body[data-mode="dark"] pre code {
+  background-color: #585858;
+  color: #e8e8e8;
+}
+
+/* CSS for sans-serif fonts */
+body[data-font=sans-serif] {}
+/* CSS for serif fonts */
+body[data-font=serif] {}
+
+/* CSS for "sepia" theme */
+body[data-mode=sepia] {}
+/* CSS for "light" theme */
+body[data-mode=light] {}
+/* CSS for "dark" theme */
+body[data-mode=dark] {}</style>
+<title>Toàn Dân Ngự Thú: Ta Có Thể Chứng Kiến Tin Tức Ẩn Giấu (Dịch) - Chương 10</title><title>Toàn Dân Ngự Thú: Ta Có Thể Chứng Kiến Tin Tức Ẩn Giấu (Dịch) - Chương 10 :: Reader View</title></head>
+<body tabindex="1" data-images="true" data-mode="sepia" data-font="sans-serif" data-columns="1" data-loaded="true">
+  <span></span> <!-- for IntersectionObserver -->
+  <a id="reader-domain" href="https://truyenyy.pro/truyen/toan-dan-ngu-thu-ta-co-the-chung-kien-tin-tuc-an-giau-dich/chuong-10.html">
+    <span>truyenyy.pro</span>
+    <span>/truyen/toan-dan-ngu-thu-ta-co-the-chung-kien-tin-tuc-an-giau-dich/chuong-10.html</span>
+  </a>
+  <h1 dir="auto" id="reader-title">Toàn Dân Ngự Thú: Ta Có Thể Chứng Kiến Tin Tức Ẩn Giấu (Dịch) - Chương 10</h1>
+  <span dir="auto" id="reader-credits"></span>
+  <span dir="auto" id="reader-estimated-time">5-6 minutes</span>
+  <span dir="auto" id="published-time"></span>
+  <hr>
+  <div id="readability-page-1" class="page"><div id="inner_chap_content_1"><p>Lâm Phong cầm Quả Dâu Mặn, nhẹ nhàng rắc trên thịt nướng, có bột phấn vương vãi xuống.</p><p>Tiểu Hỏa trừng to mắt nhìn, trong lòng hiếu kỳ chủ nhân đang làm gì?</p><p>Cũng không lâu lắm.</p><p>Tiểu Hỏa ngửi được mùi thơm mê người nồng, làm cho nước miếng của nó điên cuồng chảy ra, có chút nhịn không được, muốn xông lên cắn một miếng.</p><p>Thịt nướng đã vàng ươm.</p><p>- Chín.</p><p>Lâm Phong dùng hai cành cây làm chiếc đũa, nướng xong hai miếng thịt heo, để vào trong chén gỗ mới luyện chế.</p><p>Mình một miếng, Tiểu Hỏa một miếng.</p><p>Tiểu Hỏa sớm đã nhịn không được, lập tức mở miệng duỗi lưỡi cắn thịt heo.</p><p>- Ngô ngô...</p><p>Tiểu Hỏa bị nóng kêu vài tiếng, liên tục hấp khí, nhưng nó không nguyện ý phun thịt ra, ra sức nhai nuốt.</p><p>Thật quá ngon rồi.</p><p>Tài nấu nướng của chủ nhân thật tốt, lại làm ra món thịt ăn ngon như vậy.</p><p>Hệ thống nhắc nhở: Sủng vật Hỏa Hồ của ngươi hưởng thụ được món ngon, cực kỳ sung sướng, sinh lòng sùng bái với chủ nhân, độ trung thành +4</p><p>- Độ trung thành thêm 4 điểm?</p><p>Lâm Phong kinh ngạc, cảm thấy buồn cười.</p><p>Lúc trước lấy tên Hỏa Hồ, cùng nó chiến đấu, thêm 3 điểm trung thành.</p><p>Giúp nó vuốt lông, thêm 1 điểm trung thành.</p><p>Hiện tại một miếng thịt nướng, lại thêm 4 điểm trung thành!</p><p>- Thực là một gia hỏa ăn hàng...</p><p>Lâm Phong cười nói.</p><p>Hiện tại độ trung thành của Tiểu Hỏa đã đạt tới 73.</p><p>Độ trung thành 70 trở lên, tỷ lệ phản bội đã cực thấp.</p><p>Nhìn Tiểu Hỏa ăn ngon như vậy, Lâm Phong cũng bắt đầu động đũa.</p><p>Chậm rãi nhấm nuốt, tinh tế cảm nhận mùi thịt nướng.</p><p>- Thật ngon!</p><p>Lâm Phong không khỏi khen.</p><p>Vốn tưởng sẽ không dễ ăn, kết quả lại ngoài dự liệu.</p><p>Mùi gia vị không tệ, thịt Đại Lực Trư so với thịt heo ở địa cầu thì ngon hơn rất nhiều.</p><p>Rất nhanh Tiểu Hỏa đã ăn xong phần của nó.</p><p>- Anh anh anh...</p><p>Tiểu Hỏa nhảy tới trong lòng Lâm Phong, cọ xát vài cái, sau đó mở to đôi mắt linh lợi, bộ dạng bán manh.</p><p>Hiển nhiên là còn muốn ăn.</p><p>**</p><p>**</p><p>**</p><p>**</p><p>**</p><p>**</p><p>**</p><p>**</p><p>**</p><p>**</p><p>**</p><p>**</p><p>**</p><p>**</p><p>**</p><p>**</p><p>- Còn muốn ăn? Tốt, nướng thêm cho ngươi một miếng.</p><p>Lâm Phong đương nhiên sẽ không keo kiệt với sủng vật của mình.</p><p>Ở Thế Giới Ngự Thú, sủng vật là căn cơ của Ngự Thú Sư.</p><p>Tiểu Hỏa ăn no, trạng thái tốt, sức chiến đấu mạnh mẽ, mình sẽ càng an toàn, có thể thu được càng nhiều vật tư.</p><p>Hơn nữa Tiểu Hỏa mới ấp trứng, đã đại chiến với Đại Lực Trư cùng đẳng cấp, sử dụng kỹ năng nhiều lần, tiêu hao rất lớn.</p><p>Đích xác có chút uể oải, cần bổ sung năng lượng.</p><p>- Anh anh anh!</p><p>Tiểu Hỏa phát ra tiếng kêu vui sướng, cảm thấy chủ nhân thật quá tốt với mình.</p><p>Nó đỏ mặt đi tới bên vai Lâm Phong, liếm gương mặt Lâm Phong một cái.</p><p>- Miệng ngươi dính đầy mỡ, nhanh dừng lại!</p><p>Lâm Phong hô.</p><p>Chỉ chốc lát sau.</p><p>Miếng thịt nướng thứ hai của Tiểu Hỏa đã nướng chín.</p><p>Miếng của Lâm Phong còn chưa ăn xong.</p><p>Trọng lượng một phần thịt Đại Lực Trư rất nhiều, lại thêm thịt tinh khiết không có những vật khác, Lâm Phong có chút ăn không vô.</p><p>Nhưng rất nhanh Tiểu Hỏa ăn xong miếng thứ hai, phần Lâm Phong còn lại một chút cũng ăn.</p><p>- Ăn hàng, đừng có bị thương thực.</p><p>Lâm Phong kinh ngạc, kích thước của Tiểu Hỏa không lớn, nhưng lượng ăn lại lớn đến kinh người.</p><p>Khó có thể tưởng tượng lượng ăn của những sủng vật khác sẽ bao lớn.</p><p>Tỷ như Đại Lực Trư, một bữa sợ là có thể bằng lượng ăn của một nam tử bình thường.</p><p>Hệ thống nhắc nhở: thành công giao dịch thịt Đại Lực Trư, vật liệu sắt +5.</p><p>Một gợi ý vang lên.</p><p>Lâm Phong nhìn một chút, hiệu suất giao dịch thịt heo càng ngày càng chậm.</p><p>Người có thể lập tức lấy ra 5 vật liệu sắt hoặc vật liệu đồng không nhiều lắm.</p><p>Đại đa số Ngự Thú Sư ngay từ đầu đều đi tìm ăn uống, hoặc chiến đấu với hung thú, căn bản không nghĩ tới sưu tập thiết, đồng.</p><p>Hiện tại cả Kênh Trò Chuyện Thế Giới đều thảo luận kinh nghiệm đào quáng, bọn họ phải cần một khoảng thời gian mới có thể góp đủ tài liệu, tới đổi một phần thịt heo.</p><p>- Ta lại đào được một vật liệu sắt, hiện tại ta đã có bốn khối, ai nguyện ý bán ta một khối?</p><p>- Ta đã đào nhiều cái hố, nhưng không phát hiện khoáng thạch, lại không dám đi quá xa, lo lắng gặp phải hung thú, hung thú kia quá hung tàn!</p><p>- Chỉ còn lại hơn hai mươi miếng thịt heo, ta phải gia tăng tốc độ.</p><p>- Ta thật muốn ăn thịt... Ta đi cầu Lâm Phong đại lão thưởng một khối...</p><p>- Người này quá vô sỉ, chúng ta ăn không đủ no, đã sắp chết đói, hắn có nhiều thịt như vậy, không cứu tế chúng ta, lại nhân lúc cháy nhà mà đi hôi của, cần đổi năm vật liệu sắt!</p><p>...</p><p>Lâm Phong nhìn thoáng qua Kênh Trò Chuyện Khu Vực, có rất nhiều người nhắn riêng cho hắn, muốn dùng những vật phẩm khác đổi thịt.</p><p>Có nữ nhân gửi bức ảnh khiến nam nhân huyết mạch phún trào, thậm chí dùng video tự quay để đổi thịt heo.</p><p>Còn có người mắng Lâm Phong lãnh khốc vô tình, bảo Lâm Phong hạ giá, thậm chí miễn phí cứu tế bọn họ.</p><p>Đối với chuyện này, Lâm Phong không để ý.</p><p>- Hiện nay đã bán 28 phần thịt heo, trừ chế tạo vỉ nướng tiêu hao, hiện tại ta có 86 đơn vị sắt, 46 đơn vị đồng, đã rất nhiều.</p><p>- Ngược lại vật liệu gỗ sắp dùng xong.</p></div></div>
+  <span></span> <!-- for IntersectionObserver -->
+  
+  
+  
+  
+
+
+<style id="note-styling">
+    .note {
+      position: absolute;
+      z-index: 10;
+      border: none;
+      outline: none;
+      font-family: inherit;
+      font-size: inherit;
+      padding: 5px;
+      min-width: 32px;
+      min-height: 32px;
+    }
+    .note:focus {
+      z-index: 11;
+    }
+    .note[type="0"] {
+      background-color: #fff740;
+      color: #2c2c2d;
+    }
+    .note[type="0"]::placeholder {
+      color: #868226;
+    }
+    .note[type="1"] {
+      background-color: #feff9c;
+      color: #2c2c2d;
+    }
+    .note[type="1"]::placeholder {
+      color: #6d6d3d;
+    }
+    .note[type="2"] {
+      background-color: #ff65a3;
+      color: #2c2c2d;
+    }
+    .note[type="2"]::placeholder {
+      color: #65263f;
+    }
+    .note[type="3"] {
+      background-color: #ff7eb9;
+      color: #2c2c2d;
+    }
+    .note[type="3"]::placeholder {
+      color: #562b3f;
+    }
+    .note[type="4"] {
+      background-color: #7afcff;
+      color: #295c5d;
+    }
+    .note[type="4"]::placeholder {
+      color: #377677;
+    }</style></body><style>body {
+      font-size:  15px;
+      font-family: Helvetica, Arial, sans-serif;
+      width: 600px;
+    }
+    p {
+      text-align: justify
+    }
+    .page {
+      line-height: 22.5px;
+      column-count: unset;
+    }
+    h1, h2, h3 {
+      line-height: initial;
+    }</style></html>
