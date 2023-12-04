@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <base target="_blank">
+  <style>
+:root {
+  --fg: #000; /* foreground  */
+  --bg: #fff; /* background  */
+  --bd: #000; /* border  */
+  --lk: #0095dd; /* link */
+  --hg: #ffff81; /* highlight  */
+}
+html {
+  overflow: overlay;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 30px auto 0 auto;
+  padding: 10px;
+  position: relative;
+
+  color: var(--fg);
+  border-color: var(--bd);
+  background-color: var(--bg);
+}
+body[data-mode="light"] {
+  color-scheme: light;
+  --fg: #222;
+  --bd: #222;
+  --bg: whitesmoke;
+}
+body[data-mode="dark"] {
+  color-scheme: dark;
+  --fg: #eee;
+  --bd: #eee;
+  --bg: #333;
+}
+body[data-mode="sepia"] {
+  color-scheme: light;
+  --fg: #5b4636;
+  --bd: #5b4636;
+  --bg: #f4ecd8;
+}
+body[data-mode="solarized-light"] {
+  color-scheme: light;
+  --fg: #586e75;
+  --bd: #586e75;
+  --bg: #fdf6e3;
+}
+body[data-mode="nord-light"] {
+  color-scheme: light;
+  --fg: #2e3440;
+  --bd: #2e3440;
+  --bg: #e5e9f0;
+}
+body[data-mode="groove-dark"] {
+  color-scheme: dark;
+  --fg: #cec4ac;
+  --bd: #cec4ac;
+  --bg: #282828;
+}
+body[data-mode="solarized-dark"] {
+  color-scheme: dark;
+  --fg: #839496;
+  --bd: #839496;
+  --bg: #002b36;
+}
+body[data-mode="nord-dark"] {
+  color-scheme: dark;
+  --fg: #e5e9f0;
+  --bd: #e5e9f0;
+  --bg: #2e3440;
+}
+
+@media print {
+  body[data-mode] {
+    --fg: #000;
+    --bd: #000;
+    --bg: #fff;
+
+    width: unset;
+    padding: 0;
+    margin: 0;
+  }
+}
+body[data-loaded=true] {
+  
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+img:not([width])[src$=".svg"] {
+  max-width: 100px;
+}
+body[data-images=false] canvas,
+body[data-images=false] svg,
+body[data-images=false] img {
+  display: none;
+}
+svg:not([width]):not([height]) {
+  max-width: 25vmin;
+}
+a {
+  color: var(--lk);
+  text-decoration: none;
+}
+hr {
+  background-color: var(--bd);
+  height: 1px;
+  border: 0;
+}
+#reader-domain {
+  font-family: Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  border-bottom-color: currentcolor;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  display: inline-block;
+  direction: ltr;
+}
+#reader-domain > span:first-child {
+  font-size: 1.1em;
+}
+#reader-domain > span:last-child {
+  font-size: 0.8em;
+}
+#reader-title {
+  font-size: 1.6em;
+  line-height: 1.25em;
+  width: 100%;
+  margin: 20px 0;
+  padding: 0;
+}
+#reader-credits,
+#doi,
+#published-time,
+#reader-estimated-time {
+  font-size: 0.85em;
+  line-height: 1.48em;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+#reader-credits:not(:empty)::after {
+  content: ' ⋮ ';
+}
+#published-time:not(:empty)::before {
+  content: ' ⋮ ';
+}
+#doi-json {
+  overflow: hidden;
+}
+#doi-json code {
+  overflow: auto;
+  max-height: 400px;
+}
+#published-time:empty,
+#reader-credits:empty {
+  display: none;
+}
+mark.hghlght {
+  background-color: var(--hg);
+}
+body:not([data-columns="1"]) .page :is(h1, h2) {
+  column-span: all;
+  background-color: rgba(125, 125, 125, 0.1);
+  padding: 10px;
+}
+.hidden {
+  display: none;
+}
+
+</style>
+  <style id="user-css">body {
+  padding-bottom: 64px;
+}
+a:visited {
+  color: #d33bf0;
+}
+a:link, a:link:hover, a:link:active, a:link * {
+  color: #0095dd;
+}
+a:link {
+  text-decoration: none;
+  font-weight: normal;
+}
+pre {
+  white-space: pre-wrap;
+}
+pre code {
+  background-color: #eff0f1;
+  color: #393318;
+  font-family: monospace;
+  display: block;
+  padding: 5px 10px;
+}
+body[data-mode="dark"] pre code {
+  background-color: #585858;
+  color: #e8e8e8;
+}
+
+/* CSS for sans-serif fonts */
+body[data-font=sans-serif] {}
+/* CSS for serif fonts */
+body[data-font=serif] {}
+
+/* CSS for "sepia" theme */
+body[data-mode=sepia] {}
+/* CSS for "light" theme */
+body[data-mode=light] {}
+/* CSS for "dark" theme */
+body[data-mode=dark] {}</style>
+<title>Toàn Dân Ngự Thú: Ta Có Thể Chứng Kiến Tin Tức Ẩn Giấu (Dịch) - Chương 9</title><title>Toàn Dân Ngự Thú: Ta Có Thể Chứng Kiến Tin Tức Ẩn Giấu (Dịch) - Chương 9 :: Reader View</title></head>
+<body tabindex="1" data-images="true" data-mode="sepia" data-font="sans-serif" data-columns="1" data-loaded="true">
+  <span></span> <!-- for IntersectionObserver -->
+  <a id="reader-domain" href="https://truyenyy.pro/truyen/toan-dan-ngu-thu-ta-co-the-chung-kien-tin-tuc-an-giau-dich/chuong-9.html">
+    <span>truyenyy.pro</span>
+    <span>/truyen/toan-dan-ngu-thu-ta-co-the-chung-kien-tin-tuc-an-giau-dich/chuong-9.html</span>
+  </a>
+  <h1 dir="auto" id="reader-title">Toàn Dân Ngự Thú: Ta Có Thể Chứng Kiến Tin Tức Ẩn Giấu (Dịch) - Chương 9</h1>
+  <span dir="auto" id="reader-credits"></span>
+  <span dir="auto" id="reader-estimated-time">5-6 minutes</span>
+  <span dir="auto" id="published-time"></span>
+  <hr>
+  <div id="readability-page-1" class="page"><div id="inner_chap_content_1"><p>Khi thịt Đại Lực Trư xuất hiện ở Khu Giao Dịch, Kênh Trò Chuyện Thế Giới nhất thời sôi trào, tin tức lan truyền thật nhanh.</p><p>Mọi người khiếp sợ, còn có người cầu Lâm Phong thưởng một miếng thịt, hứa hẹn các loại thù lao.</p><p>Ảnh chân dung của tất cả mọi người ở Kênh Trò Chuyện Khu Vực, đều là bức ảnh chân thân, nick name cũng là tên thật.</p><p>Trong những người này, có một ít Lâm Phong quen thuộc, là phú hào thậm chí cán bộ cấp cao.</p><p>Nhưng thân phận và danh khí lúc trước của bọn hắn, ở chỗ Lâm Phong không đáng một đồng.</p><p>Không có tài nguyên hắn muốn, mơ tưởng ăn thịt.</p><p>Ai biết những người này có thể sống trở lại thế giới lúc trước hay không.</p><p>Hệ thống nhắc nhở: thịt Đại Lực Trư giao dịch thành công, vật liệu sắt +5</p><p>Hệ thống nhắc nhở: thịt Đại Lực Trư giao dịch thành công, vật liệu đồng +5</p><p>...</p><p>Liên tiếp xuất hiện vài nhắc nhở, Lâm Phong lập tức bán ra hơn mười phần thịt heo.</p><p>Giai đoạn hiện tại, thức ăn nước uống là khan hiếm nhất, thịt heo mới mẻ càng quý hiếm.</p><p>Nếu Lâm Phong kiên trì, treo giá, cò kè mặc cả, còn có thể đổi lấy lợi ích cao hơn.</p><p>Nhưng Lâm Phong không muốn lãng phí thời gian ở sự tình này, hắn cũng không thích cò kè mặc cả, tính toán chi li.</p><p>Hắn còn muốn chuẩn bị cơm trưa đây.</p><p>- Tốc độ bán ra trở nên chậm...</p><p>Lâm Phong nhìn thoáng qua.</p><p>Coi như có mấy tỉ người, nhưng trong thời gian ngắn như vậy, có thể lấy ra 5 vật liệu sắt hoặc vật liệu đồng cũng vô cùng ít.</p><p>Trong đó một vài người vận khí tốt, phụ cận địa điểm bắt đầu vừa vặn có vật liệu sắt hoặc vật liệu đồng.</p><p>Những người khác, nếu không mở bảo rương, thì không có dễ dàng đạt được vật liệu sắt và vật liệu đồng như vậy.</p><p>Kênh Trò Chuyện Thế Giới.</p><p>- Thịt Đại Lực Trư còn có mấy chục phần, nhanh tìm kiếm vật liệu sắt và vật liệu đồng!</p><p>- Ta đã thành công chế tạo ra một cái xúc đá và búa đá, liền đi đào quáng cho đại lão, đại lão nhất định phải chờ ta, lưu cho ta một phần thịt!</p><p>- Chỗ của ta là sa mạc, đi nơi nào tìm mỏ thiết và vật liệu đồng, đại lão có thể đổi điều kiện hay không?</p><p>- Ta cũng đi đào quáng, chí ít tốt hơn chiến đấu với hung thú... Đây là sẽ chết sủng vật, thậm chí vứt bỏ mạng nhỏ!</p><p>- Ta đào được một vật liệu sắt, còn thiếu bốn khối, ra sức.</p><p>...</p><p>Vốn Kênh Trò Chuyện Thế Giới đều là oán giận và phát tiết, hoặc giao lưu kinh nghiệm sinh tồn.</p><p>Hiện tại trên cơ bản đều là thảo luận kinh nghiệm đào quáng.</p><p>Lâm Phong lấy sức một mình, điều động mấy tỉ Ngự Thú Sư giúp mình đào quáng, mọi người đều làm việc cho hắn.</p><p>Giờ khắc này, Lâm Phong có loại cảm giác tà ác như tư bản.</p><p>Đừng nói, còn rất thoải mái.</p><p>- Chế tác vỉ nướng!</p><p>Lâm Phong mở Bảng Chế Tạo, chọn chế tạo vỉ nướng.</p><p>Hệ thống nhắc nhở: Vật liệu gỗ -4, vật liệu sắt -4, vật liệu đồng -4</p><p>Hệ thống nhắc nhở: thành công chế tạo vỉ nướng hoàn hảo</p><p>Một cái vỉ nướng xuất hiện ở trước mắt.</p><p>Hệ thống nhắc nhở: cho vào 1 vật liệu gỗ, có thể vận hành 30 phút, cho vào 1 mỏ than đá, có thể vận hành 1 giờ.</p><p>Vật liệu gỗ là tài nguyên cơ bản nhất, hắn bỏ vào một cây.</p><p>- Tiểu Hỏa, đốt lửa.</p><p>Lâm Phong nói.</p><p>Tiểu Hỏa vui sướng nhảy đến trên vĩ nướng, đuôi với vào trong.</p><p>Màu sắc cái đuôi của nó càng ngày càng đỏ, tản mát ra nhiệt độ cao, mấy giây sau có ngọn lửa nhàn nhạt dâng lên, vật liệu gỗ bắt lửa, vỉ nướng thành công vận hành.</p><p>- Kế tiếp là thịt nướng!</p><p>Công cụ có hạn, chỉ có thể đặt một miếng thịt ở trên vỉ nướng.</p><p>Chi chi két!</p><p>Ở dưới nhiệt độ của hỏa diễm, rất nhanh thịt nướng tản mát ra mùi thịt.</p><p>Tiểu Hỏa ở một bên hai mắt nhìn chằm chằm thịt nướng, há to mồm, lè lưỡi, nước bọt chảy ra.</p><p>Lâm Phong cũng chảy nướt bọt.</p><p>Tuy hắn biết, mùi vị thịt nướng khả năng không quá tốt.</p><p>Dù sao không có gia vị.</p><p>- Đúng rồi, không biết có thể đổi được đồ gia vị hay không!</p><p>Tâm thần Lâm Phong khẽ động, lần nữa mở Khu Giao Dịch.</p><p>Hắn treo một miếng thịt lên, phía dưới ghi chú đổi đồ gia vị.</p><p>Lập tức có người gửi tin.</p><p>- Đại lão, ngươi xem cái này có được không, vừa rồi ta quá đói, đã ăn một cái, còn dư lại một cái.</p><p>Dưới thư còn kèm theo một tấm hình.</p><p>Kênh Trò Chuyện Khu Vực, có thể gửi hình ảnh và video, còn có thể gửi đồ giám.</p><p>Đó là một trái cây màu nâu, phía trên có rất nhiều lỗ nhỏ.</p><p>Quả Dâu Mặn: Nhẹ nhàng lay động, sẽ rơi xuống một ít bột phấn vị mặn, có thể ăn với cơm, không độc vô hại.</p><p>- Tốt, ta muốn.</p><p>Lâm Phong hoàn thành giao dịch.</p><p>- Đa tạ đại lão, đa tạ đại lão thưởng thịt.</p><p>Đối phương cảm động đến rơi nước mắt.</p><p>Hắn thực sự đói sắp chết, chỉ có thể ăn một ít bột phấn đặc biệt trong trái cây.</p><p>Nhưng không nghĩ tới, đại lão nguyện ý dùng một miếng thịt, để đổi trái cây gia vị của mình.</p><p>Sớm biết hắn không ăn, hiện tại liền có thể đổi được hai miếng thịt heo rồi.</p><p>Hệ thống nhắc nhở: Quả Dâu Mặn +1</p><p>Một giây kế tiếp, một quả trái cây xuất hiện ở trong tay hắn.</p></div></div>
+  <span></span> <!-- for IntersectionObserver -->
+  
+  
+  
+  
+
+
+<style id="note-styling">
+    .note {
+      position: absolute;
+      z-index: 10;
+      border: none;
+      outline: none;
+      font-family: inherit;
+      font-size: inherit;
+      padding: 5px;
+      min-width: 32px;
+      min-height: 32px;
+    }
+    .note:focus {
+      z-index: 11;
+    }
+    .note[type="0"] {
+      background-color: #fff740;
+      color: #2c2c2d;
+    }
+    .note[type="0"]::placeholder {
+      color: #868226;
+    }
+    .note[type="1"] {
+      background-color: #feff9c;
+      color: #2c2c2d;
+    }
+    .note[type="1"]::placeholder {
+      color: #6d6d3d;
+    }
+    .note[type="2"] {
+      background-color: #ff65a3;
+      color: #2c2c2d;
+    }
+    .note[type="2"]::placeholder {
+      color: #65263f;
+    }
+    .note[type="3"] {
+      background-color: #ff7eb9;
+      color: #2c2c2d;
+    }
+    .note[type="3"]::placeholder {
+      color: #562b3f;
+    }
+    .note[type="4"] {
+      background-color: #7afcff;
+      color: #295c5d;
+    }
+    .note[type="4"]::placeholder {
+      color: #377677;
+    }</style></body><style>body {
+      font-size:  15px;
+      font-family: Helvetica, Arial, sans-serif;
+      width: 600px;
+    }
+    p {
+      text-align: justify
+    }
+    .page {
+      line-height: 22.5px;
+      column-count: unset;
+    }
+    h1, h2, h3 {
+      line-height: initial;
+    }</style></html>

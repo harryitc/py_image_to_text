@@ -61,3 +61,26 @@ INFO:     Application startup complete.
 ```
 
 Khi gọi api từ angular. Chúng ta sẽ gặp lỗi CQRS. Do đó, dùng middleware.
+
+
+
+
+
+
+1. autoclick hinh anh save ve
+
+2. di chuyen casc hinh anh vao 1 thu muc img/... nao do
+
+3. chinh lai cac duong dan trong test.py
+
+4. chinh lai {id value} o trong constant.ts tuong ung voi id: so chuong, value: ten chuong
+
+5. LUU Y QUAN TRONG: kiem tra cac file html. Thường thì nó nằm ở dòng đầu tiên trong phần content của HTML. 
+  5.1 Nếu là tên gì đó chả có trong nội dung chương thì BỎ. 
+  5.2 Nếu tên chương xuất hiện trong nội dung thì BỎ. Vì đã có header rồi.
+
+6. Chạy file doitenfile.py để đổi tên theo thứ tự
+
+<!-- 6. Chayj file gen_output.py để đổi generate ra các folder -->
+
+7. Chạy file test.py ~~~ DONE.

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <base target="_blank">
+  <style>
+:root {
+  --fg: #000; /* foreground  */
+  --bg: #fff; /* background  */
+  --bd: #000; /* border  */
+  --lk: #0095dd; /* link */
+  --hg: #ffff81; /* highlight  */
+}
+html {
+  overflow: overlay;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 30px auto 0 auto;
+  padding: 10px;
+  position: relative;
+
+  color: var(--fg);
+  border-color: var(--bd);
+  background-color: var(--bg);
+}
+body[data-mode="light"] {
+  color-scheme: light;
+  --fg: #222;
+  --bd: #222;
+  --bg: whitesmoke;
+}
+body[data-mode="dark"] {
+  color-scheme: dark;
+  --fg: #eee;
+  --bd: #eee;
+  --bg: #333;
+}
+body[data-mode="sepia"] {
+  color-scheme: light;
+  --fg: #5b4636;
+  --bd: #5b4636;
+  --bg: #f4ecd8;
+}
+body[data-mode="solarized-light"] {
+  color-scheme: light;
+  --fg: #586e75;
+  --bd: #586e75;
+  --bg: #fdf6e3;
+}
+body[data-mode="nord-light"] {
+  color-scheme: light;
+  --fg: #2e3440;
+  --bd: #2e3440;
+  --bg: #e5e9f0;
+}
+body[data-mode="groove-dark"] {
+  color-scheme: dark;
+  --fg: #cec4ac;
+  --bd: #cec4ac;
+  --bg: #282828;
+}
+body[data-mode="solarized-dark"] {
+  color-scheme: dark;
+  --fg: #839496;
+  --bd: #839496;
+  --bg: #002b36;
+}
+body[data-mode="nord-dark"] {
+  color-scheme: dark;
+  --fg: #e5e9f0;
+  --bd: #e5e9f0;
+  --bg: #2e3440;
+}
+
+@media print {
+  body[data-mode] {
+    --fg: #000;
+    --bd: #000;
+    --bg: #fff;
+
+    width: unset;
+    padding: 0;
+    margin: 0;
+  }
+}
+body[data-loaded=true] {
+  
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+img:not([width])[src$=".svg"] {
+  max-width: 100px;
+}
+body[data-images=false] canvas,
+body[data-images=false] svg,
+body[data-images=false] img {
+  display: none;
+}
+svg:not([width]):not([height]) {
+  max-width: 25vmin;
+}
+a {
+  color: var(--lk);
+  text-decoration: none;
+}
+hr {
+  background-color: var(--bd);
+  height: 1px;
+  border: 0;
+}
+#reader-domain {
+  font-family: Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  border-bottom-color: currentcolor;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  display: inline-block;
+  direction: ltr;
+}
+#reader-domain > span:first-child {
+  font-size: 1.1em;
+}
+#reader-domain > span:last-child {
+  font-size: 0.8em;
+}
+#reader-title {
+  font-size: 1.6em;
+  line-height: 1.25em;
+  width: 100%;
+  margin: 20px 0;
+  padding: 0;
+}
+#reader-credits,
+#doi,
+#published-time,
+#reader-estimated-time {
+  font-size: 0.85em;
+  line-height: 1.48em;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+#reader-credits:not(:empty)::after {
+  content: ' ⋮ ';
+}
+#published-time:not(:empty)::before {
+  content: ' ⋮ ';
+}
+#doi-json {
+  overflow: hidden;
+}
+#doi-json code {
+  overflow: auto;
+  max-height: 400px;
+}
+#published-time:empty,
+#reader-credits:empty {
+  display: none;
+}
+mark.hghlght {
+  background-color: var(--hg);
+}
+body:not([data-columns="1"]) .page :is(h1, h2) {
+  column-span: all;
+  background-color: rgba(125, 125, 125, 0.1);
+  padding: 10px;
+}
+.hidden {
+  display: none;
+}
+
+</style>
+  <style id="user-css">body {
+  padding-bottom: 64px;
+}
+a:visited {
+  color: #d33bf0;
+}
+a:link, a:link:hover, a:link:active, a:link * {
+  color: #0095dd;
+}
+a:link {
+  text-decoration: none;
+  font-weight: normal;
+}
+pre {
+  white-space: pre-wrap;
+}
+pre code {
+  background-color: #eff0f1;
+  color: #393318;
+  font-family: monospace;
+  display: block;
+  padding: 5px 10px;
+}
+body[data-mode="dark"] pre code {
+  background-color: #585858;
+  color: #e8e8e8;
+}
+
+/* CSS for sans-serif fonts */
+body[data-font=sans-serif] {}
+/* CSS for serif fonts */
+body[data-font=serif] {}
+
+/* CSS for "sepia" theme */
+body[data-mode=sepia] {}
+/* CSS for "light" theme */
+body[data-mode=light] {}
+/* CSS for "dark" theme */
+body[data-mode=dark] {}</style>
+<title>Toàn Dân Ngự Thú: Ta Có Thể Chứng Kiến Tin Tức Ẩn Giấu (Dịch) - Chương 13</title><title>Toàn Dân Ngự Thú: Ta Có Thể Chứng Kiến Tin Tức Ẩn Giấu (Dịch) - Chương 13 :: Reader View</title></head>
+<body tabindex="1" data-images="true" data-mode="sepia" data-font="sans-serif" data-columns="1" data-loaded="true">
+  <span></span> <!-- for IntersectionObserver -->
+  <a id="reader-domain" href="https://truyenyy.pro/truyen/toan-dan-ngu-thu-ta-co-the-chung-kien-tin-tuc-an-giau-dich/chuong-13.html">
+    <span>truyenyy.pro</span>
+    <span>/truyen/toan-dan-ngu-thu-ta-co-the-chung-kien-tin-tuc-an-giau-dich/chuong-13.html</span>
+  </a>
+  <h1 dir="auto" id="reader-title">Toàn Dân Ngự Thú: Ta Có Thể Chứng Kiến Tin Tức Ẩn Giấu (Dịch) - Chương 13</h1>
+  <span dir="auto" id="reader-credits"></span>
+  <span dir="auto" id="reader-estimated-time">5-6 minutes</span>
+  <span dir="auto" id="published-time"></span>
+  <hr>
+  <div id="readability-page-1" class="page"><div id="inner_chap_content_1"><p>Ba!</p><p>Một giây kế tiếp, móng vuốt Tiểu Hỏa thiêu đốt hỏa diễm, tát lên mặt Hồng Nhãn Thỏ một cái.</p><p>Hồng Nhãn Thỏ bị tát rơi xuống mặt đất, trên mặt lưu lại một móng vuốt nhỏ!</p><p>Hỏa Hoa!</p><p>Tiểu Hỏa phát động kỹ năng khác, mở miệng phun ra một mảnh hỏa diễm.</p><p>Hồng Nhãn Thỏ bị Tiểu Hỏa tát, còn có chút váng đầu, phản ứng không kịp, bị Hỏa Hoa đánh trúng mục tiêu.</p><p>Hồng Nhãn Thỏ nhất thời kêu thảm thiết.</p><p>Cả người bị ngọn lửa bao trùm, nó lăn lộn tại chỗ, muốn dập tắt hỏa diễm.</p><p>- Kỹ năng Hỏa Hoa này, hiệu quả càng tốt với động vật có lông rậm.</p><p>Lâm Phong nói.</p><p>Tuy Hồng Nhãn Thỏ cũng ba cấp, nhưng còn không bằng một Đại Lực Trư, không đến hai phút liền thua trận.</p><p>Hệ thống nhắc nhở: Sủng vật của ngươi Hỏa Hồ kích sát một con Hồng Nhãn Thỏ, thu được điểm kinh nghiệm.</p><p>Hệ thống nhắc nhở: Sủng vật của ngươi Hỏa Hồ tăng tới cấp 4!</p><p>Hệ thống nhắc nhở: Sủng vật của ngươi Hỏa Hồ ở trong chiến đấu có lĩnh ngộ, uy lực của kỹ năng Hỏa Hoa đề thăng.</p><p>- Thăng cấp?</p><p>Nghe hệ thống liên tục nhắc nhở, Lâm Phong vội vã kiểm tra đẳng cấp của Tiểu Hỏa.</p><p>Quả nhiên từ 3 biến thành 4!</p><p>Thể tích của Tiểu Hỏa hơi lớn hơn một ít, màu sắc lông trên người càng sâu sắc, đồng tử nhìn càng thêm linh động xinh đẹp.</p><p>Không chỉ như vậy, Lâm Phong cảm giác mình cũng xảy ra một ít biến hóa rất nhỏ.</p><p>Ngự Thú Sư có thể được một bộ phận thuộc tính tăng phúc của sủng vật.</p><p>Sủng vật thăng cấp, thuộc tính khẳng định sẽ tăng lên, như vậy Lâm Phong cũng có thể thu được đề thăng nhất định.</p><p>- Không chỉ đẳng cấp đề thăng, uy lực của Hỏa Hoa càng mạnh, đây chính là tư chất Hoàng Kim sao?</p><p>Vẻ mặt Lâm Phong có chút đắc ý.</p><p>Thực lực của Tiểu Hỏa đề thăng, sau đó ứng đối hung thú cấp 3 sẽ càng thuận buồm xuôi gió, tiêu hao giảm bớt, xác suất ngoài ý muốn cũng giảm bớt.</p><p>Còn có thể đi khiêu chiến hung thú cấp 4.</p><p>Bất quá trước đó, Lâm Phong quyết định trưng bày thịt Đại Lực Trư và Hồng Nhãn Thỏ săn giết được lên Khu Giao Dịch.</p><p>Sau khi phân giải hai con hung thú, lấy được 60 phần thịt Đại Lực Trư, cùng với 12 phần thịt Hồng Nhãn Thỏ.</p><p>Dù sao thể tích của Hồng Nhãn Thỏ nhỏ hơn Đại Lực Trư rất nhiều, thịt ít cũng bình thường.</p><p>Khu Giao Dịch.</p><p>Người bán: Lâm Phong</p><p>Vật phẩm giao dịch: thịt Đại Lực Trư</p><p>Nhu cầu: 5 vật liệu đồng</p><p>Được tuyển chọn 1: 5 vật liệu sắt, được tuyển chọn 2: 30 vật liệu gỗ, được tuyển chọn 3: 30 vật liệu đá.</p><p>Tồn kho: 60</p><p>...</p><p>Kênh Trò Chuyện Thế Giới.</p><p>- Mọi người không nên nản chí, tuy giai đoạn hiện tại sủng vật của chúng ta không phải đối thủ của những hung thú đó, nhưng ta phát hiện sủng vật có thể trưởng thành, bất quá cần chú trọng phương pháp, hiện nay ta vẫn còn nghiên cứu.</p><p>- Chỉ sợ ta không sống tới ngày sủng vật lớn lên.</p><p>- Ta cũng vậy, sủng vật của ta là Đại Lực Trư, ta từ chỗ Lâm Phong đổi một miếng thịt, ta ăn ba phần, nó ăn bảy phần còn không đủ no, ánh mắt nhìn chằm chằm vào ta, ta cảm giác nó đang nghĩ có nên ăn ta hay không, ai có thể nói cho ta biết nên làm cái gì bây giờ không?</p><p>Mặc dù sủng vật là của Ngự Thú Sư, nhưng có độ trung thành, độ trung thành quá thấp, rất có thể sẽ xuất hiện hành vi phản bội.</p><p>Để cho sủng vật đói, rõ ràng sẽ giảm bớt độ trung thành.</p><p>Mà một khi sủng vật phản bội Ngự Thú Sư đói bụng, thật có khả năng ăn luôn Ngự Thú Sư.</p><p>- Hai cái miệng, cần nước và thức ăn nhiều lắm, hơn nữa sủng vật còn ăn nhiều như vậy. Nếu ta quá đói, chỉ sợ cũng sẽ làm ra quyết định giống như Lâm Phong đại lão, trước làm thịt sủng vật ăn no lại nói.</p><p>- Ngươi còn gọi hắn đại lão? Hắn chỉ là một người đáng thương giống chúng ta mà thôi, không tính là đại lão.</p><p>- Lâm Phong không có sủng vật, chẳng mấy chốc sẽ chết.</p><p>- Ta sát, Khu Giao Dịch lại có thịt!</p><p>Đột nhiên, có người hô lên một câu.</p><p>Sau đó lượng tin tức ở Kênh Trò Chuyện Thế Giới nhất thời giảm bớt, rất nhiều người đều chạy đến Khu Giao Dịch kiểm tra tình huống.</p><p>Hiện tại thức ăn rất thiếu thốn, một khi có thức ăn trưng bày, rất nhanh sẽ bị đoạt sạch.</p><p>Nên động tác phải nhanh.</p><p>- Con bà nó! Thật là thịt, là thịt Đại Lực Trư!</p><p>- Ước chừng 60 phần, còn nhiều hơn lúc trước Lâm Phong bán ra, là vị đại lão nào?</p><p>- Yêu cầu là 5 vật liệu sắt hoặc vật liệu đồng, 30 vật liệu gỗ hoặc 30 vật liệu đá, sao cảm giác quen mắt như thế...</p><p>- Lúc trước thời điểm Lâm Phong bán thịt Đại Lực Trư, dường như cũng yêu cầu như vậy.</p><p>- Mắt các ngươi mù sao, 60 phần thịt Đại Lực Trư này, chính là Lâm Phong đại lão trưng bày!</p><p>- Ngọa tào, ngươi không nói ta còn không chú ý tới!</p><p>- Thật là Lâm Phong!</p><p>- Điều này sao có thể?</p><p>- Hắn làm sao làm được?</p><p>Kênh Trò Chuyện Thế Giới nhất thời sôi trào, vô số người nghi hoặc khiếp sợ!</p><p>Trước đây không lâu, bọn họ còn thảo luận thịt Đại Lực Trư của Lâm Phong từ nơi nào tới.</p><p>Cuối cùng nhất trí kết luận, Lâm Phong đói điên rồi, làm thịt sủng vật Đại Lực Trư của mình!</p></div></div>
+  <span></span> <!-- for IntersectionObserver -->
+  
+  
+  
+  
+
+
+<style id="note-styling">
+    .note {
+      position: absolute;
+      z-index: 10;
+      border: none;
+      outline: none;
+      font-family: inherit;
+      font-size: inherit;
+      padding: 5px;
+      min-width: 32px;
+      min-height: 32px;
+    }
+    .note:focus {
+      z-index: 11;
+    }
+    .note[type="0"] {
+      background-color: #fff740;
+      color: #2c2c2d;
+    }
+    .note[type="0"]::placeholder {
+      color: #868226;
+    }
+    .note[type="1"] {
+      background-color: #feff9c;
+      color: #2c2c2d;
+    }
+    .note[type="1"]::placeholder {
+      color: #6d6d3d;
+    }
+    .note[type="2"] {
+      background-color: #ff65a3;
+      color: #2c2c2d;
+    }
+    .note[type="2"]::placeholder {
+      color: #65263f;
+    }
+    .note[type="3"] {
+      background-color: #ff7eb9;
+      color: #2c2c2d;
+    }
+    .note[type="3"]::placeholder {
+      color: #562b3f;
+    }
+    .note[type="4"] {
+      background-color: #7afcff;
+      color: #295c5d;
+    }
+    .note[type="4"]::placeholder {
+      color: #377677;
+    }</style></body><style>body {
+      font-size:  15px;
+      font-family: Helvetica, Arial, sans-serif;
+      width: 600px;
+    }
+    p {
+      text-align: justify
+    }
+    .page {
+      line-height: 22.5px;
+      column-count: unset;
+    }
+    h1, h2, h3 {
+      line-height: initial;
+    }</style></html>

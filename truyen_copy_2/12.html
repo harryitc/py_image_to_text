@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <base target="_blank">
+  <style>
+:root {
+  --fg: #000; /* foreground  */
+  --bg: #fff; /* background  */
+  --bd: #000; /* border  */
+  --lk: #0095dd; /* link */
+  --hg: #ffff81; /* highlight  */
+}
+html {
+  overflow: overlay;
+}
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 30px auto 0 auto;
+  padding: 10px;
+  position: relative;
+
+  color: var(--fg);
+  border-color: var(--bd);
+  background-color: var(--bg);
+}
+body[data-mode="light"] {
+  color-scheme: light;
+  --fg: #222;
+  --bd: #222;
+  --bg: whitesmoke;
+}
+body[data-mode="dark"] {
+  color-scheme: dark;
+  --fg: #eee;
+  --bd: #eee;
+  --bg: #333;
+}
+body[data-mode="sepia"] {
+  color-scheme: light;
+  --fg: #5b4636;
+  --bd: #5b4636;
+  --bg: #f4ecd8;
+}
+body[data-mode="solarized-light"] {
+  color-scheme: light;
+  --fg: #586e75;
+  --bd: #586e75;
+  --bg: #fdf6e3;
+}
+body[data-mode="nord-light"] {
+  color-scheme: light;
+  --fg: #2e3440;
+  --bd: #2e3440;
+  --bg: #e5e9f0;
+}
+body[data-mode="groove-dark"] {
+  color-scheme: dark;
+  --fg: #cec4ac;
+  --bd: #cec4ac;
+  --bg: #282828;
+}
+body[data-mode="solarized-dark"] {
+  color-scheme: dark;
+  --fg: #839496;
+  --bd: #839496;
+  --bg: #002b36;
+}
+body[data-mode="nord-dark"] {
+  color-scheme: dark;
+  --fg: #e5e9f0;
+  --bd: #e5e9f0;
+  --bg: #2e3440;
+}
+
+@media print {
+  body[data-mode] {
+    --fg: #000;
+    --bd: #000;
+    --bg: #fff;
+
+    width: unset;
+    padding: 0;
+    margin: 0;
+  }
+}
+body[data-loaded=true] {
+  
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+img:not([width])[src$=".svg"] {
+  max-width: 100px;
+}
+body[data-images=false] canvas,
+body[data-images=false] svg,
+body[data-images=false] img {
+  display: none;
+}
+svg:not([width]):not([height]) {
+  max-width: 25vmin;
+}
+a {
+  color: var(--lk);
+  text-decoration: none;
+}
+hr {
+  background-color: var(--bd);
+  height: 1px;
+  border: 0;
+}
+#reader-domain {
+  font-family: Helvetica, Arial, sans-serif;
+  text-decoration: none;
+  border-bottom-color: currentcolor;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  display: inline-block;
+  direction: ltr;
+}
+#reader-domain > span:first-child {
+  font-size: 1.1em;
+}
+#reader-domain > span:last-child {
+  font-size: 0.8em;
+}
+#reader-title {
+  font-size: 1.6em;
+  line-height: 1.25em;
+  width: 100%;
+  margin: 20px 0;
+  padding: 0;
+}
+#reader-credits,
+#doi,
+#published-time,
+#reader-estimated-time {
+  font-size: 0.85em;
+  line-height: 1.48em;
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+#reader-credits:not(:empty)::after {
+  content: ' ⋮ ';
+}
+#published-time:not(:empty)::before {
+  content: ' ⋮ ';
+}
+#doi-json {
+  overflow: hidden;
+}
+#doi-json code {
+  overflow: auto;
+  max-height: 400px;
+}
+#published-time:empty,
+#reader-credits:empty {
+  display: none;
+}
+mark.hghlght {
+  background-color: var(--hg);
+}
+body:not([data-columns="1"]) .page :is(h1, h2) {
+  column-span: all;
+  background-color: rgba(125, 125, 125, 0.1);
+  padding: 10px;
+}
+.hidden {
+  display: none;
+}
+
+</style>
+  <style id="user-css">body {
+  padding-bottom: 64px;
+}
+a:visited {
+  color: #d33bf0;
+}
+a:link, a:link:hover, a:link:active, a:link * {
+  color: #0095dd;
+}
+a:link {
+  text-decoration: none;
+  font-weight: normal;
+}
+pre {
+  white-space: pre-wrap;
+}
+pre code {
+  background-color: #eff0f1;
+  color: #393318;
+  font-family: monospace;
+  display: block;
+  padding: 5px 10px;
+}
+body[data-mode="dark"] pre code {
+  background-color: #585858;
+  color: #e8e8e8;
+}
+
+/* CSS for sans-serif fonts */
+body[data-font=sans-serif] {}
+/* CSS for serif fonts */
+body[data-font=serif] {}
+
+/* CSS for "sepia" theme */
+body[data-mode=sepia] {}
+/* CSS for "light" theme */
+body[data-mode=light] {}
+/* CSS for "dark" theme */
+body[data-mode=dark] {}</style>
+<title>Toàn Dân Ngự Thú: Ta Có Thể Chứng Kiến Tin Tức Ẩn Giấu (Dịch) - Chương 12</title><title>Toàn Dân Ngự Thú: Ta Có Thể Chứng Kiến Tin Tức Ẩn Giấu (Dịch) - Chương 12 :: Reader View</title></head>
+<body tabindex="1" data-images="true" data-mode="sepia" data-font="sans-serif" data-columns="1" data-loaded="true">
+  <span></span> <!-- for IntersectionObserver -->
+  <a id="reader-domain" href="https://truyenyy.pro/truyen/toan-dan-ngu-thu-ta-co-the-chung-kien-tin-tuc-an-giau-dich/chuong-12.html">
+    <span>truyenyy.pro</span>
+    <span>/truyen/toan-dan-ngu-thu-ta-co-the-chung-kien-tin-tuc-an-giau-dich/chuong-12.html</span>
+  </a>
+  <h1 dir="auto" id="reader-title">Toàn Dân Ngự Thú: Ta Có Thể Chứng Kiến Tin Tức Ẩn Giấu (Dịch) - Chương 12</h1>
+  <span dir="auto" id="reader-credits"></span>
+  <span dir="auto" id="reader-estimated-time">5-6 minutes</span>
+  <span dir="auto" id="published-time"></span>
+  <hr>
+  <div id="readability-page-1" class="page"><div id="inner_chap_content_1"><p>- Bất kể là loại tình huống nào, mất đi sủng vật, hắn chính là người bình thường, không cách nào sinh tồn ở thế giới này, có thể vài ngày sau chúng ta sẽ không còn nhìn thấy hắn.</p><p>- Không sai, Lâm Phong sống không được mấy ngày.</p><p>...</p><p>Lâm Phong nhìn thoáng qua Kênh Trò Chuyện Khu Vực, không khỏi ngẩn người.</p><p>Những người này nói cái quái gì vậy?</p><p>Không hiểu.</p><p>Hắn cũng lười đi suy nghĩ nhiều.</p><p>Sau khi ăn no nê, Lâm Phong và Tiểu Hỏa thu dọn đồ đạc, lại xuất phát lần nữa, chuẩn bị săn giết hung thú.</p><p>- Thịt Đại Lực Trư rõ ràng bán được giá như vậy, còn cung không đủ cầu, bị điên cuồng cướp đoạt, xét đến cùng, là bởi vì đây là ngày đầu tiên mọi người tới thế giới này.</p><p>- Sủng vật ban đầu của mọi người còn yếu, không cách nào đối kháng hung thú, tìm thức ăn không dễ.</p><p>- Nhưng chỉ cần bọn hắn không chết, sủng vật chung quy sẽ từ từ lớn lên, có thể đối kháng hung thú.</p><p>- Đến lúc đó thức ăn không khan hiếm nữa, chân chính khan hiếm sẽ là vật liệu đồng, vật liệu sắt…</p><p>Tâm tư của Lâm Phong rất rõ ràng.</p><p>Nên hắn quyết định, thừa dịp sủng vật của Ngự Thú Sư khác còn chưa trưởng thành, còn không cách nào săn giết hung thú.</p><p>Hắn phải nắm chặt thời gian cùng Tiểu Hỏa săn giết hung thú, điên cuồng bán thịt, nhân cơ hội cướp đoạt còn lại tài nguyên.</p><p>Nếu bỏ lỡ, về sau sẽ không có cơ hội tốt như vậy nữa.</p><p>Đi không bao lâu, Lâm Phong phát hiện bụi cỏ ở cách đó không xa truyền đến động tĩnh.</p><p>- Tiểu Hỏa, chuẩn bị chiến đấu.</p><p>Lâm Phong nhắc nhở một tiếng, cẩn thận tới gần.</p><p>Xuyên thấu qua khe hở bụi cỏ, hắn chứng kiến một bóng dáng màu xanh lục đang chậm rãi nhúc nhích.</p><p>Lục Phì Trùng</p><p>Thuộc tính: Độc hệ</p><p>Đẳng cấp: 3</p><p>Tư chất: Thanh Đồng</p><p>Kỹ năng: Phóng thích độc khí</p><p>Trạng thái: Phiền muộn</p><p>Nhược điểm: Phong hệ, Thổ hệ</p><p>Miêu tả: côn trùng mập mạp, bởi vì gần đây không tiết chế ăn cỏ, đưa tới thể trọng tăng nhiều, di động trở nên chậm chạp, nên có chút buồn bực. Không nên tới gần nó, nó nhát gan, một khi sợ sẽ phóng ra độc khí.</p><p>- Gào!</p><p>Tiểu Hỏa ăn no, tràn ngập chiến ý kêu lên vài tiếng, chuẩn bị xông lên chiến đấu.</p><p>- Ách... hay là thôi đi.</p><p>Lâm Phong nhăn mày lại.</p><p>Thịt của Lục Phì Trùng, nhìn không phải thứ gì ngon, nhất định sẽ ảnh hưởng giá cả, không có quý hiếm bằng thịt heo.</p><p>Hơn nữa Lục Phì Trùng là Độc hệ.</p><p>Vạn nhất trúng độc, lại không có giải dược, vậy thì thảm.</p><p>Độc của Lục Phì Trùng cũng không mãnh liệt, không đến mức chết, nhưng đủ để Lâm Phong và Tiểu Hỏa suy yếu một đoạn thời gian.</p><p>Như thế kế hoạch của Lâm Phong sẽ không cách nào thi hành, nên hoàn toàn không cần thiết đi săn giết đồ chơi này, phiêu lưu quá lớn, không có lợi lắm.</p><p>Lâm Phong mang theo Tiểu Hỏa nhanh chóng rời khỏi, đi tìm con mồi khác.</p><p>Rất nhanh, hai người tìm được một con Đại Lực Trư.</p><p>Cấp 3, quá thích hợp.</p><p>- Vẫn là Đại Lực Trư tốt, thực lực không mạnh, thịt nhiều lại thơm, rất được hoan nghênh.</p><p>Lâm Phong cười híp mắt nhìn Đại Lực Trư.</p><p>- Tiểu Hỏa, lên!</p><p>Lâm Phong ra lệnh, Tiểu Hỏa liền xông ra ngoài.</p><p>Tốc độ của Tiểu Hỏa rất nhanh, chỉ chậm hơn kỹ năng Trùng Kích của Đại Lực Trư một chút, tốc độ chạy trốn bình thường mà nói, nó nhanh hơn Đại Lực Trư.</p><p>Hơn nữa có kinh nghiệm giao thủ với Đại Lực Trư lần trước, lần này Tiểu Hỏa càng thêm thuận buồm xuôi gió.</p><p>Hai kỹ năng Hỏa Hoa và Hỏa Trảo, không ngừng tạo thành thương thế cho Đại Lực Trư.</p><p>Sau ba phút.</p><p>Đại Lực Trư suy tàn ngã xuống, cả người nám đen nằm ở trên mặt đất.</p><p>Lâm Phong chuẩn bị đi tới bổ đao.</p><p>Xuy!</p><p>Chỉ thấy Tiểu Hỏa phát động Hỏa Trảo, xẹt qua cổ Đại Lực Trư, Đại Lực Trư triệt để không còn khí tức.</p><p>Hệ thống nhắc nhở: Sủng vật của ngươi Hỏa Hồ kích sát một con Đại Lực Trư, thu được điểm kinh nghiệm.</p><p>- Anh anh anh!</p><p>Tiểu Hỏa đắc ý nhìn về phía Lâm Phong, kêu vài tiếng.</p><p>Giống như nói cho Lâm Phong, nó đã biết rồi, đối đãi địch nhân không nên để lại người sống.</p><p>- Rất thông minh.</p><p>Lâm Phong tán dương.</p><p>- Còn có hung thú, Tiểu Hỏa cẩn thận.</p><p>Đại Lực Trư vừa chết, Lâm Phong phát hiện cách đó không xa nhảy ra một con thỏ, cao chừng hơn nửa thước.</p><p>Hồng Nhãn Thỏ</p><p>Thuộc tính: Thú hệ</p><p>Đẳng cấp: 3</p><p>Tư chất: Hắc Thiết</p><p>Kỹ năng: Điên cuồng cắn xé</p><p>Trạng thái: Đói bụng</p><p>Nhược điểm: Thổ hệ</p><p>Miêu tả: Hồng Nhãn Thỏ thích tìm kiếm vật hình côn cứng cỏi mài răng, hiện tại nó cực kỳ đói bụng, đồng thời đã phát hiện thức ăn.</p><p>Sưu!</p><p>Hồng Nhãn Thỏ là hung thú loại hình mẫn tiệp, tốc độ của nó nhanh, năng lực nhảy mạnh mẽ.</p><p>Nhưng Tiểu Hỏa là sủng vật tư chất Hoàng Kim, ở phương diện tốc độ còn nhanh hơn Hồng Nhãn Thỏ.</p><p>Chỉ là năng lực nhảy không bằng còn thỏ này.</p><p>Chỉ thấy Hồng Nhãn Thỏ nhảy một cái, đi tới bên cạnh Tiểu Hỏa, sau đó phát động kỹ năng Điên Cuồng Cắn Xé.</p><p>Hai cái răng thỏ dài thêm vài phần, chỉ cần cắn trúng Tiểu Hỏa, có thể trong nháy mắt lưu lại vết thương rất sâu, trọng thương Tiểu Hỏa.</p><p>Nếu Lâm Phong bị cắn, vết thương lớn như vậy sẽ trong nháy mắt máu chảy như rót, trực tiếp tử vong!</p></div></div>
+  <span></span> <!-- for IntersectionObserver -->
+  
+  
+  
+  
+
+
+<style id="note-styling">
+    .note {
+      position: absolute;
+      z-index: 10;
+      border: none;
+      outline: none;
+      font-family: inherit;
+      font-size: inherit;
+      padding: 5px;
+      min-width: 32px;
+      min-height: 32px;
+    }
+    .note:focus {
+      z-index: 11;
+    }
+    .note[type="0"] {
+      background-color: #fff740;
+      color: #2c2c2d;
+    }
+    .note[type="0"]::placeholder {
+      color: #868226;
+    }
+    .note[type="1"] {
+      background-color: #feff9c;
+      color: #2c2c2d;
+    }
+    .note[type="1"]::placeholder {
+      color: #6d6d3d;
+    }
+    .note[type="2"] {
+      background-color: #ff65a3;
+      color: #2c2c2d;
+    }
+    .note[type="2"]::placeholder {
+      color: #65263f;
+    }
+    .note[type="3"] {
+      background-color: #ff7eb9;
+      color: #2c2c2d;
+    }
+    .note[type="3"]::placeholder {
+      color: #562b3f;
+    }
+    .note[type="4"] {
+      background-color: #7afcff;
+      color: #295c5d;
+    }
+    .note[type="4"]::placeholder {
+      color: #377677;
+    }</style></body><style>body {
+      font-size:  15px;
+      font-family: Helvetica, Arial, sans-serif;
+      width: 600px;
+    }
+    p {
+      text-align: justify
+    }
+    .page {
+      line-height: 22.5px;
+      column-count: unset;
+    }
+    h1, h2, h3 {
+      line-height: initial;
+    }</style></html>

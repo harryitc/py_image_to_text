@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <base target="_blank">
+  <style>
+    :root {
+      --fg: #000;
+      /* foreground  */
+      --bg: #fff;
+      /* background  */
+      --bd: #000;
+      /* border  */
+      --lk: #0095dd;
+      /* link */
+      --hg: #ffff81;
+      /* highlight  */
+    }
+
+    html {
+      overflow: overlay;
+    }
+
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      margin: 30px auto 0 auto;
+      padding: 10px;
+      position: relative;
+
+      color: var(--fg);
+      border-color: var(--bd);
+      background-color: var(--bg);
+    }
+
+    body[data-mode="light"] {
+      color-scheme: light;
+      --fg: #222;
+      --bd: #222;
+      --bg: whitesmoke;
+    }
+
+    body[data-mode="dark"] {
+      color-scheme: dark;
+      --fg: #eee;
+      --bd: #eee;
+      --bg: #333;
+    }
+
+    body[data-mode="sepia"] {
+      color-scheme: light;
+      --fg: #5b4636;
+      --bd: #5b4636;
+      --bg: #f4ecd8;
+    }
+
+    body[data-mode="solarized-light"] {
+      color-scheme: light;
+      --fg: #586e75;
+      --bd: #586e75;
+      --bg: #fdf6e3;
+    }
+
+    body[data-mode="nord-light"] {
+      color-scheme: light;
+      --fg: #2e3440;
+      --bd: #2e3440;
+      --bg: #e5e9f0;
+    }
+
+    body[data-mode="groove-dark"] {
+      color-scheme: dark;
+      --fg: #cec4ac;
+      --bd: #cec4ac;
+      --bg: #282828;
+    }
+
+    body[data-mode="solarized-dark"] {
+      color-scheme: dark;
+      --fg: #839496;
+      --bd: #839496;
+      --bg: #002b36;
+    }
+
+    body[data-mode="nord-dark"] {
+      color-scheme: dark;
+      --fg: #e5e9f0;
+      --bd: #e5e9f0;
+      --bg: #2e3440;
+    }
+
+    @media print {
+      body[data-mode] {
+        --fg: #000;
+        --bd: #000;
+        --bg: #fff;
+
+        width: unset;
+        padding: 0;
+        margin: 0;
+      }
+    }
+
+    body[data-loaded=true] {}
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    img:not([width])[src$=".svg"] {
+      max-width: 100px;
+    }
+
+    body[data-images=false] canvas,
+    body[data-images=false] svg,
+    body[data-images=false] img {
+      display: none;
+    }
+
+    svg:not([width]):not([height]) {
+      max-width: 25vmin;
+    }
+
+    a {
+      color: var(--lk);
+      text-decoration: none;
+    }
+
+    hr {
+      background-color: var(--bd);
+      height: 1px;
+      border: 0;
+    }
+
+    #reader-domain {
+      font-family: Helvetica, Arial, sans-serif;
+      text-decoration: none;
+      border-bottom-color: currentcolor;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
+      display: inline-block;
+      direction: ltr;
+    }
+
+    #reader-domain>span:first-child {
+      font-size: 1.1em;
+    }
+
+    #reader-domain>span:last-child {
+      font-size: 0.8em;
+    }
+
+    #reader-title {
+      font-size: 1.6em;
+      line-height: 1.25em;
+      width: 100%;
+      margin: 20px 0;
+      padding: 0;
+    }
+
+    #reader-credits,
+    #doi,
+    #published-time,
+    #reader-estimated-time {
+      font-size: 0.85em;
+      line-height: 1.48em;
+      margin: 0 0 10px 0;
+      padding: 0;
+    }
+
+    #reader-credits:not(:empty)::after {
+      content: ' ⋮ ';
+    }
+
+    #published-time:not(:empty)::before {
+      content: ' ⋮ ';
+    }
+
+    #doi-json {
+      overflow: hidden;
+    }
+
+    #doi-json code {
+      overflow: auto;
+      max-height: 400px;
+    }
+
+    #published-time:empty,
+    #reader-credits:empty {
+      display: none;
+    }
+
+    mark.hghlght {
+      background-color: var(--hg);
+    }
+
+    body:not([data-columns="1"]) .page :is(h1, h2) {
+      column-span: all;
+      background-color: rgba(125, 125, 125, 0.1);
+      padding: 10px;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+  <style id="user-css">
+    body {
+      padding-bottom: 64px;
+    }
+
+    a:visited {
+      color: #d33bf0;
+    }
+
+    a:link,
+    a:link:hover,
+    a:link:active,
+    a:link * {
+      color: #0095dd;
+    }
+
+    a:link {
+      text-decoration: none;
+      font-weight: normal;
+    }
+
+    pre {
+      white-space: pre-wrap;
+    }
+
+    pre code {
+      background-color: #eff0f1;
+      color: #393318;
+      font-family: monospace;
+      display: block;
+      padding: 5px 10px;
+    }
+
+    body[data-mode="dark"] pre code {
+      background-color: #585858;
+      color: #e8e8e8;
+    }
+
+    /* CSS for sans-serif fonts */
+    body[data-font=sans-serif] {}
+
+    /* CSS for serif fonts */
+    body[data-font=serif] {}
+
+    /* CSS for "sepia" theme */
+    body[data-mode=sepia] {}
+
+    /* CSS for "light" theme */
+    body[data-mode=light] {}
+
+    /* CSS for "dark" theme */
+    body[data-mode=dark] {}
+  </style>
+  <title>Toàn Dân Ngự Thú: Ta Có Thể Chứng Kiến Tin Tức Ẩn Giấu (Dịch) - Chương 4</title>
+  <title>Toàn Dân Ngự Thú: Ta Có Thể Chứng Kiến Tin Tức Ẩn Giấu (Dịch) - Chương 4 :: Reader View</title>
+</head>
+
+<body tabindex="1" data-images="true" data-mode="sepia" data-font="sans-serif" data-columns="1" data-loaded="true">
+  <span></span> <!-- for IntersectionObserver -->
+  <a id="reader-domain"
+    href="https://truyenyy.pro/truyen/toan-dan-ngu-thu-ta-co-the-chung-kien-tin-tuc-an-giau-dich/chuong-4.html">
+    <span>truyenyy.pro</span>
+    <span>/truyen/toan-dan-ngu-thu-ta-co-the-chung-kien-tin-tuc-an-giau-dich/chuong-4.html</span>
+  </a>
+  <h1 dir="auto" id="reader-title">Toàn Dân Ngự Thú: Ta Có Thể Chứng Kiến Tin Tức Ẩn Giấu (Dịch) - Chương 4</h1>
+  <span dir="auto" id="reader-credits"></span>
+  <span dir="auto" id="reader-estimated-time">5-6 minutes</span>
+  <span dir="auto" id="published-time"></span>
+  <hr>
+  <div id="readability-page-1" class="page">
+    <div id="inner_chap_content_1">
+      <!-- <p>Chương 4: Tiểu Hỏa Hồ nhiệt tình</p> -->
+      <p>Nhưng ở trong nước có ưu thế to lớn, hoàn toàn có thể bù đắp thiếu hụt này.</p>
+      <p>Sơ kỳ mọi người không có thức ăn cũng không có nước, Lam Văn Quy lại có thiên phú tìm nguồn nước.</p>
+      <p>Lâm Phong hài lòng gật đầu.</p>
+      <p>Hắn cảm giác, sủng vật ban đầu của mình, sẽ là Lam Văn Quy này.</p>
+      <p>Trong 1000 quả trứng sủng vật, xuất hiện một con sủng vật Bạch Ngân cấp, cũng đã là cực hạn.</p>
+      <p>Nhưng hắn vẫn kiên trì nhìn toàn bộ trứng sủng vật một lần.</p>
+      <p>Dù sao cũng không thiếu chút thời gian này.</p>
+      <p>Từ từ, Lâm Phong đã quan sát hơn chín trăm quả trứng sủng vật, sắp nhìn hết toàn bộ.</p>
+      <p>Đến hiện tại, hắn không có phát hiện sủng vật tư chất Bạch Ngân thứ hai, Lam Văn Quy đã là lựa chọn tối ưu.</p>
+      <p>Nhưng trong mấy quả trứng sủng vật cuối cùng, lại cho Lâm Phong một kinh hỉ to lớn.</p>
+      <p>Trong trứng sủng vật này là một con Hỏa Hồ.</p>
+      <p>Hỏa Hồ</p>
+      <p>Thuộc tính: Thú hệ, Hỏa hệ</p>
+      <p>Đẳng cấp: 3</p>
+      <p>Tư chất: Hoàng Kim</p>
+      <p>Kỹ năng: Hỏa Hoa, Hỏa Trảo</p>
+      <p>Trạng thái: Hưng phấn</p>
+      <p>Miêu tả: Đây là một con Hỏa Hồ quý hiếm gần phá xác, sở hữu năng lực chiến đấu xuất sắc cùng với tiềm lực
+        trưởng thành ưu tú, trọng điểm bồi dưỡng nó, tuyệt đối sẽ không để cho ngươi thất vọng.</p>
+      <p>- Sủng vật Hoàng Kim!</p>
+      <p>Lâm Phong không khỏi há to miệng, mừng rỡ khó diễn tả được.</p>
+      <p>Hắn chẳng thể nghĩ tới, cuối cùng lại đụng phải kinh hỉ lớn như vậy!</p>
+      <p>Tư chất Hoàng Kim, treo lên đánh tất cả trứng sủng vật còn lại, tuyệt đối là hạng nhất trong một ngàn quả
+        trứng sủng vật này.</p>
+      <p>- Ta chọn trứng sủng vật này!</p>
+      <p>Lâm Phong không chút do dự nói.</p>
+      <p>Vừa dứt lời, vụ khí bốn phía, kèm theo trứng sủng vật khác tiêu tán vô tung.</p>
+      <p>Lâm Phong lại về nhà gỗ của mình, trên giường của hắn, lẳng lặng nằm một quả trứng sủng vật, nó màu đỏ nhạt,
+        mặt trên có văn lạc hỏa diễm.</p>
+      <p>- Chọn hoàn tất, xin nhỏ huyết dịch lên trứng sủng vật, hoàn thành khế ước, khiến nó trở thành đồng bọn thứ
+        nhất của ngươi! Thu phục sủng vật ban đầu, tỷ lệ thành công là 100%.</p>
+      <p>- Thu phục sủng vật ban đầu là 100%, như vậy đến tiếp sau thu phục sủng vật còn lại, hẳn là sẽ không dễ dàng
+        thành công như vậy...</p>
+      <p>Lâm Phong suy nghĩ gợi ý của hệ thống.</p>
+      <p>Đây càng chứng minh quyết định của hắn đúng, ban đầu nhất định phải chọn tốt nhất.</p>
+      <p>Không có dao găm, Lâm Phong chỉ có thể cắn ngón tay, nhỏ huyết dịch lên vỏ trứng.</p>
+      <p>Huyết dịch chậm rãi thấm vào.</p>
+      <p>Trứng sủng vật lay động.</p>
+      <p>Tâm thần Lâm Phong khẽ động, cảm giác có một loại liên hệ không rõ cùng đồ vật gì đó.</p>
+      <p>Răng rắc! Răng rắc!</p>
+      <p>Trên trứng sủng vật xuất hiện vết rách.</p>
+      <p>Mấy giây sau, một cái đầu nhỏ nhung nhung hồng sắc, từ bên trong ló ra.</p>
+      <p>Đôi mắt to màu đỏ, tò mò quan sát bốn phía, cuối cùng nhìn về phía thanh niên trước mắt.</p>
+      <p>Lâm Phong cũng ngưng mắt nhìn sủng vật ban đầu của mình.</p>
+      <p>Hỏa Hồ dễ nghe kêu một tiếng, biểu hiện bộ dáng gần gủi, phá xác đi ra, lập tức nhảy vào trong lòng Lâm Phong.
+      </p>
+      <p>Đừng nói, hỏa này gia còn có chút trọng lượng, lực đạo cũng lớn, đột nhiên tập kích qua, làm cho Lâm Phong lảo
+        đảo lui về phía sau mấy bước, lập tức ngồi trên mặt đất.</p>
+      <p>Bộ dạng của Hỏa Hồ rất đáng yêu, bộ lông màu đỏ, nhất là cái đuôi, đong đưa qua lại tựa như một ngọn lửa.</p>
+      <p>Hỏa Hồ cọ khuôn mặt Lâm Phong vài cái, còn vươn đầu lưỡi liếm hắn.</p>
+      <p>- Được rồi, được rồi, ngừng ngừng...</p>
+      <p>Lâm Phong bị Hỏa Hồ nhiệt tình đả đảo, hai tay bế nó lên.</p>
+      <p>Thừa dịp này, hắn cẩn thận quan sát đối phương.</p>
+      <p>Không có tiểu JJ.</p>
+      <p>Giống cái.</p>
+      <p>Sau đó hắn đặt Hỏa Hồ ở trên giường gỗ.</p>
+      <p>Nhưng tiểu gia hỏa này không chút an phận, chạy nhảy lung tung, tròng mắt nhìn chằm chằm Lâm Phong, dường như
+        tùy thời chuẩn bị nhào tới.</p>
+      <p>- Ngươi thành công thu được sủng vật ban đầu, sẽ được bộ phận thuộc tính của sủng vật, cùng với một kỹ năng
+        ngẫu nhiên. Ngươi thu được kỹ năng Hỏa Hoa.</p>
+      <p>- Ta cũng có kỹ năng...</p>
+      <p>Lâm Phong cảm giác có một dòng nước ấm chảy xuôi ở trong thân thể, thân thể hắn như có một ít biến hóa không
+        biết.</p>
+      <p>Hắn mở Bảng Sủng Vật ra.</p>
+      <p>Hỏa Hồ</p>
+      <p>Thuộc tính: Thú hệ, Hỏa hệ</p>
+      <p>Đẳng cấp: 3</p>
+      <p>Tư chất: Hoàng Kim</p>
+      <p>Trạng thái: Hưng phấn, vui mừng</p>
+      <p>Nhược điểm: Sợ nước, sợ tối</p>
+      <p>Kỹ năng: Hỏa Hoa, Hỏa Trảo</p>
+      <p>Độ trung thành: 62</p>
+      <p>Lộ tuyến tiến hóa: 2 con đường</p>
+      <p>Miêu tả: Hỏa Hồ mới vừa sinh ra, gặp một Ngự Thú Sư nhìn rất tốt, nội tâm cực kỳ vui mừng, muốn cùng Ngự Thú Sư
+        thân cận một chút.</p>
+      <p>- Sau khi thành công thu phục, ta có thể chứng kiến nhiều tin tức hơn của sủng vật. Tỷ như nhược điểm, độ trung
+        thành, lộ tuyến tiến hóa.</p>
+      <p>Trong đó nhược điểm và lộ tuyến tiến hóa, đều là văn tự màu vàng.</p>
+      <p>Những thứ này hẳn là tin tức ẩn dấu, người khác nhìn không thấy, chỉ có Lâm Phong chứng kiến.</p>
+      <p>Chỉ hai điểm này, đã cực kỳ lợi hại.</p>
+      <p>Có thể chứng kiến nhược điểm sủng vật của địch nhân, sẽ hữu hiệu nhằm vào khắc chế, ung dung thủ thắng.</p>
+      <p>Mà lộ tuyến tiến hóa, sợ rằng còn trọng yếu hơn cái trước.</p>
+      <p>Ngự Thú Sư còn lại đều không biết sủng vật của mình làm sao tiến hóa, thậm chí không biết sủng vật có thể tiến
+        hóa.</p>
+      <p>Mà Lâm Phong đều biết, còn có thể chứng kiến tất cả lộ tuyến tiến hóa.</p>
+    </div>
+  </div>
+  <span></span> <!-- for IntersectionObserver -->
+
+
+
+
+
+
+  <style id="note-styling">
+    .note {
+      position: absolute;
+      z-index: 10;
+      border: none;
+      outline: none;
+      font-family: inherit;
+      font-size: inherit;
+      padding: 5px;
+      min-width: 32px;
+      min-height: 32px;
+    }
+
+    .note:focus {
+      z-index: 11;
+    }
+
+    .note[type="0"] {
+      background-color: #fff740;
+      color: #2c2c2d;
+    }
+
+    .note[type="0"]::placeholder {
+      color: #868226;
+    }
+
+    .note[type="1"] {
+      background-color: #feff9c;
+      color: #2c2c2d;
+    }
+
+    .note[type="1"]::placeholder {
+      color: #6d6d3d;
+    }
+
+    .note[type="2"] {
+      background-color: #ff65a3;
+      color: #2c2c2d;
+    }
+
+    .note[type="2"]::placeholder {
+      color: #65263f;
+    }
+
+    .note[type="3"] {
+      background-color: #ff7eb9;
+      color: #2c2c2d;
+    }
+
+    .note[type="3"]::placeholder {
+      color: #562b3f;
+    }
+
+    .note[type="4"] {
+      background-color: #7afcff;
+      color: #295c5d;
+    }
+
+    .note[type="4"]::placeholder {
+      color: #377677;
+    }
+  </style>
+</body>
+<style>
+  body {
+    font-size: 15px;
+    font-family: Helvetica, Arial, sans-serif;
+    width: 600px;
+  }
+
+  p {
+    text-align: justify
+  }
+
+  .page {
+    line-height: 22.5px;
+    column-count: unset;
+  }
+
+  h1,
+  h2,
+  h3 {
+    line-height: initial;
+  }
+</style>
+
+</html>
