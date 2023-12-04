@@ -26,7 +26,7 @@ if match:
     ts_array = json.loads(json_array_str)
 
     # In mảng Python
-    print(ts_array)
+    # print(ts_array)
 else:
     print("Không tìm thấy mảng JSON trong file.")
 
@@ -35,20 +35,29 @@ else:
 HEADER_ID = "reader-title"
 CONTENT_ID = "readability-page-1"
 
+# boi so 
+MAX_FILE_IN_FOLDER = 5
+
 # Đường dẫn thư mục chứa các file HTML
 FOLDER_PATH_INPUT = "truyen"
 
-FOLDER_PATH_OUTPUT_MERGE = "truyen_format/merge/" + str(ts_array[0]["id"]) + '_' + str(ts_array[-1]["id"])
+# FOLDER_PATH_OUTPUT_MERGE = "truyen_format/merge/" + str(ts_array[0]["id"]) + '_' + str(ts_array[-1]["id"])
 result_content_merge = ""
 
-FOLDER_PATH_OUTPUT_SEPRATE = "truyen_format/seprate/" + str(ts_array[0]["id"]) + '_' + str(ts_array[-1]["id"])
+# FOLDER_PATH_OUTPUT_SEPRATE = "truyen_format/seprate/" + str(ts_array[0]["id"]) + '_' + str(ts_array[-1]["id"])
+
+FOLDER_PATH_OUTPUT_RESULT = "output_html_to_text"
+
+SUBFOLDER_PATH_OUTPUT_REULST_MERGE = FOLDER_PATH_OUTPUT_RESULT + "/merge"
 
 FILE_NAME_PATH_OUTPUT = ".txt"
 
 
 # Tự động tạo thư mục nếu nó chưa tồn tại
-os.makedirs(FOLDER_PATH_OUTPUT_MERGE, exist_ok=True)
-os.makedirs(FOLDER_PATH_OUTPUT_SEPRATE, exist_ok=True)
+# os.makedirs(FOLDER_PATH_OUTPUT_MERGE, exist_ok=True)
+# os.makedirs(FOLDER_PATH_OUTPUT_SEPRATE, exist_ok=True)
+os.makedirs(FOLDER_PATH_OUTPUT_RESULT, exist_ok=True)
+os.makedirs(SUBFOLDER_PATH_OUTPUT_REULST_MERGE, exist_ok=True)
 
 def extract_content_from_html(file_path, element_id):
     with open(file_path, 'r', encoding='utf-8') as file:
@@ -86,24 +95,24 @@ def extract_content_from_html(file_path, element_id):
 
 
 # Lấy danh sách các file trong thư mục
+# file_list = [f for f in os.listdir(FOLDER_PATH_INPUT) if f.endswith('.html')]
 file_list = [f for f in os.listdir(FOLDER_PATH_INPUT) if f.endswith('.html')]
+file_list = sorted(file_list, key=lambda x: int(os.path.basename(x).split('.')[0]))
 
-# print('file list = ', file_list)
+#Bug: Sort danh sách file. Vì lấy ra tự nhiên nó bị đảo
 
+current_batch = 1
+current_batch_size = 0
 
 # Lặp qua từng file và lấy nội dung
 for file_name in file_list:
-    file_path = os.path.join(FOLDER_PATH_INPUT, file_name)
+    file_input_path = os.path.join(FOLDER_PATH_INPUT, file_name)
     
-    # print('file name = ', file_name)
+    header = extract_content_from_html(file_input_path, HEADER_ID)
     
-    header = extract_content_from_html(file_path, HEADER_ID)
-    
-    content = extract_content_from_html(file_path, CONTENT_ID)
+    content = extract_content_from_html(file_input_path, CONTENT_ID)
     # Sử dụng replace để thay thế chuỗi cần xóa bằng chuỗi rỗng
     content = content.replace("Chương: Kingofbattle.", "")
-
-
     # Sử dụng biểu thức chính quy để tìm kiếm chữ "Chương" và số
     match = re.search(r'Chương (\d+)', header)
 
@@ -112,7 +121,7 @@ for file_name in file_list:
         chuong_text = match.group(0)
         chuong_number = match.group(1)
 
-        print(chuong_text)
+        # print(chuong_text)
         # print("Số:", chuong_number)
     else:
         print("Không tìm thấy chương và số trong chuỗi.")
@@ -137,23 +146,45 @@ for file_name in file_list:
 
     # cuoi cung la add content vao
     # result = content
-    result += content
+    result = result + content + "\n" 
 
     # Tạo tên file output dựa trên tên file HTML
     # output_file_name = os.path.splitext(file_name)[0] + FILE_NAME_PATH_OUTPUT
-    output_file_name = chuong_number + FILE_NAME_PATH_OUTPUT
+    # output_file_name = chuong_number + FILE_NAME_PATH_OUTPUT
     # output_file_name = os.path.splitext(file_name)[0] + "_output.txt"
-    # output_file_path = os.path.join(FOLDER_PATH_OUTPUT_MERGE, output_file_name)
-    output_file_path_seprate = os.path.join(FOLDER_PATH_OUTPUT_SEPRATE, output_file_name)
+
+    # output_file_path_seprate = os.path.join(FOLDER_PATH_OUTPUT_SEPRATE, output_file_name)
 
     # Ghi nội dung đã được xử lý vào file được tổng hợp
     result_content_merge = result_content_merge + result + "\n"
 
     # Ghi nội dung đã được trích xuất vào file
-    with open(output_file_path_seprate, 'w', encoding='utf-8') as output_file:
+    # with open(output_file_path_seprate, 'w', encoding='utf-8') as output_file:
+    #     output_file.write(result)
+
+    # file_path = os.path.join(input_folder, file_name)
+    # text_content = read_html_content(file_path)
+
+    # Tạo tên file output dựa trên tên file HTML
+    output_file_name = os.path.splitext(file_name)[0] + ".txt"
+
+    # Nếu đã đạt đến số lượng file cho mỗi thư mục, tạo thư mục mới
+    if current_batch_size == MAX_FILE_IN_FOLDER:
+        current_batch += 1
+        current_batch_size = 0
+
+    # Tạo tên thư mục dựa trên khoảng file
+    folder_name = f"{current_batch * MAX_FILE_IN_FOLDER - MAX_FILE_IN_FOLDER + 1}_{current_batch * MAX_FILE_IN_FOLDER}"
+    folder_path = os.path.join(FOLDER_PATH_OUTPUT_RESULT, folder_name)
+    os.makedirs(folder_path, exist_ok=True)
+
+    output_file_path = os.path.join(folder_path, output_file_name)
+
+    # Ghi nội dung đã được xử lý vào file
+    with open(output_file_path, 'w', encoding='utf-8') as output_file:
         output_file.write(result)
 
-    # print(f"Content from {file_name} has been saved to {output_file_path_seprate}")
+    current_batch_size += 1
 
 
 
@@ -161,7 +192,7 @@ for file_name in file_list:
 print("---------------------- START FILE MERGE ----------------")
 # Ghi nội dung đã được trích xuất vào file
 output_file_path_merge = os.path.join(
-    FOLDER_PATH_OUTPUT_MERGE, 
+    SUBFOLDER_PATH_OUTPUT_REULST_MERGE,
     str(ts_array[0]["id"]) 
     + '_' + 
     str(ts_array[-1]["id"]) + 
@@ -169,4 +200,4 @@ output_file_path_merge = os.path.join(
     )
 with open(output_file_path_merge , 'w', encoding='utf-8') as output_file:
         output_file.write(result_content_merge)
-print(f"Content from {file_name} has been saved to {output_file_path_merge}")
+# print(f"Content from {file_name} has been saved to {output_file_path_merge}")

@@ -3,7 +3,8 @@ from bs4 import BeautifulSoup  # Cần cài đặt thư viện beautifulsoup4
 import glob
 
 # Đường dẫn đến thư mục chứa file HTML
-input_folder = "truyen_copy_2"
+input_folder = "example"
+# input_folder = "truyen"
 DUOI_FILE = ".txt"
 
 # Số lượng file mỗi thư mục

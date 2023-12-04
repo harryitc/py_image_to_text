@@ -1,7 +1,8 @@
 import glob
 import os
 
-folder_path = "truyen_copy_2"
+folder_path = "example"
+# folder_path = "truyen"
 
 file_list = glob.glob(os.path.join(folder_path, '*.html'))
 
