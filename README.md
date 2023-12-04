@@ -81,6 +81,6 @@ Khi gọi api từ angular. Chúng ta sẽ gặp lỗi CQRS. Do đó, dùng midd
 
 6. Chạy file doitenfile.py để đổi tên theo thứ tự
 
-<!-- 6. Chayj file gen_output.py để đổi generate ra các folder -->
+<!-- 6.1. TEST: Chayj file gen_output.py để đổi generate ra các folder -->
 
-7. Chạy file test.py ~~~ DONE.
+7. Chạy file html_to_text.py ~~~ DONE.
